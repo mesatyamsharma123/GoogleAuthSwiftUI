@@ -11,7 +11,7 @@ import GoogleSignIn
 import GoogleSignInSwift
 
 class AuthViewModel: ObservableObject {
-    
+
     
     func signIn() async throws  {
         guard let topVC = Utilities.shared.topViewController() else {
@@ -29,7 +29,9 @@ class AuthViewModel: ObservableObject {
          
         try await AuthManager.shared.signInWithGoogle(tokens: token)
         
-        
-        
+    
+    }
+    func signOut() async throws {
+        try await AuthManager.shared.signOut()
     }
 }

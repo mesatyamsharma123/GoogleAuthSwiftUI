@@ -11,6 +11,7 @@
 		E627FA6A2F5306430038DF58 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = E627FA692F5306430038DF58 /* FirebaseCore */; };
 		E627FA6C2F5306430038DF58 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E627FA6B2F5306430038DF58 /* GoogleSignIn */; };
 		E627FA6E2F5306430038DF58 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E627FA6D2F5306430038DF58 /* GoogleSignInSwift */; };
+		E6D21ACE2F56DB14001C61B0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E6D21ACD2F56DB14001C61B0 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 			files = (
 				E627FA6A2F5306430038DF58 /* FirebaseCore in Frameworks */,
 				E627FA682F5306430038DF58 /* FirebaseAuth in Frameworks */,
+				E6D21ACE2F56DB14001C61B0 /* FirebaseMessaging in Frameworks */,
 				E627FA6C2F5306430038DF58 /* GoogleSignIn in Frameworks */,
 				E627FA6E2F5306430038DF58 /* GoogleSignInSwift in Frameworks */,
 			);
@@ -148,6 +150,7 @@
 				E627FA692F5306430038DF58 /* FirebaseCore */,
 				E627FA6B2F5306430038DF58 /* GoogleSignIn */,
 				E627FA6D2F5306430038DF58 /* GoogleSignInSwift */,
+				E6D21ACD2F56DB14001C61B0 /* FirebaseMessaging */,
 			);
 			productName = GoogleAuthSwiftUI;
 			productReference = E627FA342F52FAFD0038DF58 /* GoogleAuthSwiftUI.app */;
@@ -654,6 +657,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E627FA652F5306240038DF58 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		E6D21ACD2F56DB14001C61B0 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E627FA642F5305610038DF58 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

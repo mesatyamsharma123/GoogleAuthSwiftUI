@@ -4,9 +4,21 @@ import FirebaseAuth
 import Firebase
 import GoogleSignIn
 import GoogleSignInSwift
+import Combine
 
-struct AuthManager {
+class AuthManager: ObservableObject {
     static let shared = AuthManager ()
+    @Published var user: User?
+
+
+    init(){
+        Auth.auth().addStateDidChangeListener { _, user in
+                  
+                    DispatchQueue.main.async {
+                        self.user = user
+                    }
+                }
+    }
     
     func signInWithGoogle(tokens: GoogleModel)  async throws -> AuthDataResultModel {
         let credential = try await GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
@@ -23,7 +35,9 @@ struct AuthManager {
     func signOut() throws {
         try Auth.auth().signOut()
     }
-    
+  
+   
+
     
     
 }

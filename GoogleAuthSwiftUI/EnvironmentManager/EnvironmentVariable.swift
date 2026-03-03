@@ -1,8 +1,9 @@
-//
-//  EnvironmentVariable.swift
-//  GoogleAuthSwiftUI
-//
-//  Created by Satyam Sharma Chingari on 01/03/26.
-//
+
 
 import Foundation
+import SwiftUI
+import Combine
+
+class EnvironmentVariable: ObservableObject {
+    @Published var isLoggedIn: Bool = false
+}
