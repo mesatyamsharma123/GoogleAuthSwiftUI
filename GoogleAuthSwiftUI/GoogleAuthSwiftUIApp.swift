@@ -78,9 +78,15 @@ final class AppDelegate: NSObject , UIApplicationDelegate ,MessagingDelegate, UN
         completionHandler()
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        //Handle data here
+        NotificationCenter.default.post(name:Notification.Name("userLoggedIn"),object: nil)
 
     
     }
-    
-}
+  
+//    how to recevied
+//    NotificationCenter.default.addObserver(forName: Notification.Name("userLoggedIn"), object: nil, queue: .main){
+//         _ in
+//        print("user logged in")
+//        
+//    }
+    }
