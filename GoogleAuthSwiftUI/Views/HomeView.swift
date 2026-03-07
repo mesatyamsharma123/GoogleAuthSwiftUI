@@ -4,6 +4,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var isOpenHamburger: Bool = false
     @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+@State var showNotificationScreen = false
     @StateObject var viewModel = AuthViewModel()
     var body: some View {
         ZStack {
@@ -76,9 +77,38 @@ struct HomeView: View {
                 .accessibilityLabel("Open menu")
             }
         }
+        .navigationDestination(isPresented: $showNotificationScreen) {
+                        NotificationView()
+                    }
+                    
+        .onAppear {
+                   
+            NotificationManager.scheduleLoginAgain()
+            UIDevice.current.isBatteryMonitoringEnabled = true
+                }
         
+        .onDisappear{
+            
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("TriggerLogout"))) { _ in
+                    print("📥 Signal Received: Logging out now...")
+                   showNotificationScreen = true
+                }
+//        .onReceive(NotificationCenter.default.publisher(for: UIDevice.batteryLevelDidChangeNotification)) { _ in
+//           
+//            NotificationManager.showBatteryNotification()
+//        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.protectedDataDidBecomeAvailableNotification)) { _ in
+            print("🔓 Phone Unlock hua!")
+            NotificationManager.showBatteryNotification()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.userDidTakeScreenshotNotification)) { _ in
+            print("📸 Screenshot liya gaya!")
+            NotificationManager.showBatteryNotification() 
+        }
       
     }
+    
 }
 
 #Preview {

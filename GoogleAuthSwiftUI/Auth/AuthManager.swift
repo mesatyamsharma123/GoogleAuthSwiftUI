@@ -34,6 +34,7 @@ class AuthManager: ObservableObject {
      
     func signOut() throws {
         try Auth.auth().signOut()
+        NotificationManager.closeScheduleLoginAgain()
     }
   
    
